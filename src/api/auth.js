@@ -1,5 +1,5 @@
 import React from "react";
-const APIURL = `https://fitnesstrac-kr.herokuapp.com/docs/api/`;
+const APIURL = `https://fitnesstrac-kr.herokuapp.com/api/`;
 
 export const registerUser = async (username, password) => {
   try {
