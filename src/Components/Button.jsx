@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ action, content, nameOfClass }) => {
+export const Button = ({ action, content, nameOfClass }) => {
     return (
         <div>
             <button className={nameOfClass} onClick={action}>{content}</button>
@@ -8,4 +8,3 @@ const Button = ({ action, content, nameOfClass }) => {
     )
 }
 
-export default Button

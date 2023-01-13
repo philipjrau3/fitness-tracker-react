@@ -10,11 +10,13 @@ const Register = ({setLoggedIn}) => {
           onSubmit={async (e) => {
             try {
               e.preventDefault();
-              const data = await registerUser(username, password);
-              if (data.data.token) {
-                setLoggedIn(true);
-                localStorage.setItem("token", data.data.token);
-              }
+              console.log ("username/password ", username, password);
+              const response = await registerUser(username, password);
+              // if (token) {
+                // setLoggedIn(true);
+                localStorage.setItem("token", token);
+                console.log("working?", token);
+              // }
             } catch (error) {
               console.error(error);
             }

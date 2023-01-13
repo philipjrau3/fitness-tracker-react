@@ -12,8 +12,9 @@ const LogIn = ({ setLoggedIn }) => {
             e.preventDefault();
             console.log(password, username);
             const token = await loggedInUser(username, password);
-            setLoggedIn(true);
+            setLoggedIn(token);
             localStorage.setItem("token", token);
+            console.log(token);
           } catch (error) {
             console.error(error);
           }
