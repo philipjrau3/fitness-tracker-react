@@ -4,6 +4,11 @@ import { loggedInUser } from "../api/auth";
 const LogIn = ({ setLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const redirMyRoutines = () => {
+    window.location.href = "/MyRoutines";
+  };
+
     return (
         <div>
       <form
@@ -14,6 +19,7 @@ const LogIn = ({ setLoggedIn }) => {
             const token = await loggedInUser(username, password);
             setLoggedIn(token);
             localStorage.setItem("token", token);
+            redirMyRoutines();
             console.log(token);
           } catch (error) {
             console.error(error);

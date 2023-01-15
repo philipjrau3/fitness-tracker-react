@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
+import { createNewActivity } from "../api/activities";
 
 
 export const AllActivities = ({activities, setActivities}) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    
     return (
         <div className='activities'>
         <form>
@@ -12,7 +14,7 @@ export const AllActivities = ({activities, setActivities}) => {
             <input
               value={name}
               type="text"
-              placeholder="Title"
+              placeholder="Name"
               onChange={(e) => setName(e.target.value)}
             ></input>
             <label htmlFor="description">Description:</label>
@@ -27,7 +29,7 @@ export const AllActivities = ({activities, setActivities}) => {
           action={async () => {
             const token = localStorage.getItem("token")
             const newActivity = await createNewActivity(name, description, token);
-            setActivities([newActivity, ...activities]);
+            setActivities([newActivity, activities]);
           }}
           content={'Create New Activity'}
         />

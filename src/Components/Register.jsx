@@ -11,11 +11,12 @@ const Register = ({setLoggedIn}) => {
             try {
               e.preventDefault();
               console.log ("username/password ", username, password);
-              const response = await registerUser(username, password);
+              const token = await registerUser(username, password);
+              
               // if (token) {
                 // setLoggedIn(true);
-                localStorage.setItem("token", token);
-                console.log("working?", token);
+                localStorage.setItem("token", token.token);
+                // console.log("working?", token);
               // }
             } catch (error) {
               console.error(error);

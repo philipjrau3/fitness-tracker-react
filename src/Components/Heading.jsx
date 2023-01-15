@@ -10,11 +10,12 @@ const Heading = ({ user }) => {
           Welcome {user?.username} to Fitness Tracker!
         </h1>
         <div>
-        <Link to="/">Home<br></br></Link>
+        <Link to="Home">Home<br></br></Link>
         Already a member? <Link to="/login">Sign In<br></br></Link>
         New user? <Link to="/register">Sign Up<br></br></Link>
-        Routines <Link to="/routines">See All Routines<br></br></Link>
-        Activities <Link to="/AllActivities">See All Activities</Link>
+        Routines <Link to="/allroutines">See All Routines<br></br></Link>
+        Routines <Link to="/myroutines">See My Routines<br></br></Link>
+        Activities <Link to="/allactivities">See All Activities</Link>
     </div>
       </header>
     );  

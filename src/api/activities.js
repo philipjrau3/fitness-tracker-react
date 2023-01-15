@@ -6,8 +6,8 @@ export const getAllActivities = async () => {
     const response = await fetch(`${APIURL}activities`);
     // console.log(response);
     const results = await response.json();
-    const activities = results.activities;
-    return activities;
+
+    return results; //need to return an array of object
   } catch (error) {
     console.error(error);
     // console.log(activities);
@@ -15,6 +15,7 @@ export const getAllActivities = async () => {
 };
 
 export const createNewActivity = async (name, description) => {
+  const token = window.localStorage.getItem("token");
   try {
     const response = await fetch(`${APIURL}activities`, {
       method: "POST",
@@ -23,13 +24,12 @@ export const createNewActivity = async (name, description) => {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        activity: {
-          name: name,
-          description: description,
-        },
+        name: name,
+        description: description,
       }),
     });
     const data = await response.json();
+    console.log(data);
     return data;
     // console.log(data);
   } catch (error) {
