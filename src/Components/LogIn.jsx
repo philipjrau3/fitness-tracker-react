@@ -26,14 +26,14 @@ const LogIn = ({ setLoggedIn }) => {
           }
         }}
       >
-        <label htmlFor="username">Returning User:</label>
+        <label htmlFor="username">Returning User: </label>
         <input
           value={username}
           type="text"
           placeholder="Previous User"
           onChange={(e) => setUsername(e.target.value)}
         ></input>
-        <label htmlFor="password">Password :</label>
+        <label htmlFor="password">Password: </label>
         <input
           value={password}
           type="password"

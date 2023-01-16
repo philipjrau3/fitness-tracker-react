@@ -22,6 +22,7 @@ const App = () => {
   const [routines, setRoutines] = useState ([]);
   const [myRoutines, setMyRoutines] = useState([]);
   const [routineDelete, setRoutineDelete] = useState({});
+ 
 
   const username = user.username;
 
@@ -37,8 +38,8 @@ const App = () => {
 
   useEffect(()=> {
     const fetchRoutines = async () => {
-      const routines = await getAllRoutines();
-      setRoutines(routines)
+      const allRoutines = await getAllRoutines();
+      setRoutines(allRoutines);
     }
     fetchRoutines();
   }, []
@@ -46,8 +47,8 @@ const App = () => {
 
   useEffect(()=> {
     const fetchMyRoutines = async () => {
-      const myRoutines = await getMyRoutines(username, token);
-      setMyRoutines(myRoutines)
+      const allMyRoutines = await getMyRoutines(username, token);
+      setMyRoutines(allMyRoutines)
     };
     if (user.username) {
     fetchMyRoutines();
@@ -64,6 +65,8 @@ useEffect (()=> {
   }
 }, [routineDelete]
 );
+
+
 
   useEffect(() => {
     
@@ -89,7 +92,7 @@ useEffect (()=> {
           <Route path="AllActivities" element={<AllActivities activities={activities} setActivities={setActivities}/>}></Route> 
           <Route path="Register" element={<Register setLoggedIn={setLoggedIn}/>}></Route>
           <Route path="LogIn" element={<LogIn setLoggedIn={setLoggedIn}/>}></Route>
-          <Route path="/" element={<Home/>}></Route> 
+          <Route path="Home" element={<Home/>}></Route> 
       </Routes> 
     </div>
 

@@ -43,7 +43,6 @@ export const createNewRoutine = async (name, goal) => {
     });
     const data = await response.json();
     return data;
-    // console.log(data);
   } catch (error) {
     throw error;
   }
@@ -60,5 +59,7 @@ export const deleteRoutine = async (routineDelete, token) => {
     });
     const data = await response.json();
     return data;
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
 };

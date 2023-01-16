@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
 import APIURL from "./auth";
 
 export const getAllActivities = async () => {
   try {
     const response = await fetch(`${APIURL}activities`);
-    // console.log(response);
     const results = await response.json();
-
-    return results; //need to return an array of object
+    return results;
   } catch (error) {
     console.error(error);
-    // console.log(activities);
   }
 };
 
@@ -20,7 +16,7 @@ export const createNewActivity = async (name, description) => {
     const response = await fetch(`${APIURL}activities`, {
       method: "POST",
       headers: {
-        "Content-type": "application/json; charset=UTF=8",
+        "Content-type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
@@ -29,9 +25,7 @@ export const createNewActivity = async (name, description) => {
       }),
     });
     const data = await response.json();
-    console.log(data);
     return data;
-    // console.log(data);
   } catch (error) {
     throw error;
   }
